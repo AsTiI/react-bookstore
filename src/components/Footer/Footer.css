@@ -1,0 +1,9 @@
+.footer_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer_container p {
+    font-weight: 100;
+    color:rgb(167, 166, 166);
+}

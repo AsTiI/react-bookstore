@@ -1,0 +1,9 @@
+.subscribe_container {
+    margin: 40px 0;
+    padding: 40px 30px;
+    background-color: rgb(244, 235, 255);
+}
+
+.subscribe_container h2 {
+    text-transform: uppercase;
+}

@@ -1,0 +1,9 @@
+.nav_container {
+    margin-bottom: 40px;
+}
+
+.flex_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

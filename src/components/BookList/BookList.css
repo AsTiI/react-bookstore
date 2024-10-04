@@ -1,0 +1,17 @@
+.bookList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.book {
+    padding: 10px;
+    width: 300px;
+    background-color: aliceblue;
+    box-shadow: 0 5px 5px grey;
+}
+
+.bookImg img {
+    width: 300px;
+}

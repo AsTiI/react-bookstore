@@ -11,6 +11,7 @@ const BookDetail: React.FC = () => {
     const dispatch = useDispatch();
     const [ currentBook, setCurrentBook ] = useState<BookDetailsState | null>(null);
     const book = useSelector((state: RootState) => state.books.books.find(book => book.isbn13 === isbn13) );
+    const books = useSelector((state: RootState) => state.books.books);
 
     useEffect(() => {
         const loadBookDetails = async () => {
@@ -38,6 +39,28 @@ const BookDetail: React.FC = () => {
         };
         loadBookDetails();
     }, [isbn13]);
+    
+    // useEffect(() => {
+    //     const loadBookDetails = async () => {
+    //         try {
+    //             if (!books.length) { // Проверка, есть ли книги в store
+    //                 dispatch({ type: FETCH_BOOKS_REQUEST });
+    //                 const booksData = await fetchNewReleases();
+    //                 dispatch({ type: FETCH_BOOKS_SUCCESS, payload: booksData.books });
+    //             }
+
+    //             if (isbn13) { // Если книга всё ещё не найдена
+    //                 const details = await fetchBookDetails(isbn13);
+    //                 if (details) {
+    //                     setCurrentBook(details);
+    //                 }
+    //             }
+    //         } catch (error) {
+    //             console.error("Ошибка при загрузке книги: ", error);
+    //         }
+    //     };
+    //     loadBookDetails();
+    // }, [isbn13, book, books.length, dispatch]);
 
     const handleAddToCart = () => {
         if (book) {
