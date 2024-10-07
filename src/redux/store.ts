@@ -3,11 +3,15 @@ import { thunk } from 'redux-thunk';
 import { booksReducer } from './bookReducer';
 import { cartReducer } from './cartReducer';
 import { bookDetailsReducer } from './bookDetailsReducer';
+import { userReducer } from './reducers/userReducer';
+import { authReducer } from './reducers/authReducer';
 
 const rootReducer = combineReducers({
   cart: cartReducer,
   books: booksReducer,
   details: bookDetailsReducer,
+  user: userReducer,
+  auth: authReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

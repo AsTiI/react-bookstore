@@ -1,0 +1,25 @@
+.regpage_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgb(223, 223, 223);
+    background-color: rgb(255, 255, 255);
+    padding: 30px 15px 25px;
+}
+
+.regpage_container h2 {
+    text-align: center;
+    padding: 0 0 30px;
+}
+
+.regpage_container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form .form_elem {
+    display: flex;
+    justify-content: space-between;
+}
