@@ -1,9 +1,10 @@
-import '../styles/AuthPage.css';
+import './AuthPage.css';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/store';
 import Button from '../../components/Button/Button';
+import { LOGIN } from '../../types/actionTypes';
 
 const AuthPage: React.FC = () => {
     const [email, setEmail] = useState<string>("");
@@ -22,7 +23,7 @@ const AuthPage: React.FC = () => {
             if (token) {
                 try {
                     const parsedToken = JSON.parse(token);
-                    // dispatch(login({ email: parsedToken.email, password: parsedToken.password }));
+                    dispatch({type: LOGIN, payload: { email: parsedToken.email, password: parsedToken.password }});
                 } catch (error) {
                     console.error("Ошибка при парсинге токена:", error);
                 }
@@ -36,6 +37,7 @@ const AuthPage: React.FC = () => {
 
     const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        dispatch({type: LOGIN, payload: { email: email, password: password }});
         // dispatch(login({ email: email, password: password }));
         console.log({ email: email, password: password });
     };

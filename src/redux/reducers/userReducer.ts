@@ -7,7 +7,7 @@ const initialState: UsersState = {
         isAuthenticated: false,
         email: "maxim@gmail.com",
         password: "111",
-        surname: "Астапёнок",
+        surname: "Кит",
         name: "Максим",
         fathername: "Дмитриевич",
     },{
@@ -15,7 +15,7 @@ const initialState: UsersState = {
         isAuthenticated: false,
         email: "alice@gmail.com",
         password: "222",
-        surname: "Мурукина",
+        surname: "Мур",
         name: "Алиса",
         fathername: "Петровна",
     }],

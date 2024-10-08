@@ -1,0 +1,39 @@
+.cart_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.bookCount {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.decrement, .increment {
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 2px 3px;
+    width: 10px;
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+}
+
+.dropBooks p {
+    cursor: pointer;
+    user-select: none;
+    padding: 5px;
+    transform: rotate(45deg);
+    font-size: 24px;
+    color: rgb(214, 214, 214);
+}
+
+.dropBooks p:hover {
+    color: rgb(158, 158, 158);
+}
+
+.dropBooks p:active {
+    color: rgb(185, 185, 185);
+}

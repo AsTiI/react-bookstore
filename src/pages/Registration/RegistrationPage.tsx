@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
-import '../styles/RegistrationPage.css'
+import './RegistrationPage.css'
 import Button from '../../components/Button/Button';
 import { User } from '../../types/userTypes';
+import { SET_USER } from '../../types/actionTypes';
 
 export default function RegistrationPage() {
     const dispatch = useDispatch();
@@ -25,6 +26,7 @@ export default function RegistrationPage() {
 
     const onReg = () =>{
         console.log(newUser);
+        dispatch({type: SET_USER, payload: newUser});
         // dispatch(setUser(newUser));
         navigate("/auth");
     }

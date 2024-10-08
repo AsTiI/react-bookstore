@@ -1,5 +1,5 @@
 import { CartItem, Book } from "./bookTypes";
-import { User, UsersState } from './userTypes'
+import { User } from './userTypes'
 
 // Константы для действий
 export const ADD_TO_CART = 'ADD_TO_CART';               
@@ -15,8 +15,13 @@ export const SET_LOCAL_STORAGE = 'SET_LOCAL_STORAGE';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 
+interface LoginAuth {
+    type: typeof LOGIN;
+    payload: User
+} 
+
 export type AuthActionTypes =
-    | Login
+    | LoginAuth
     | Logout
 
 interface SetUser {

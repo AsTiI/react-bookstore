@@ -19,7 +19,7 @@ export const authReducer = (state = initialState, action: AuthActionTypes): User
                 isAuthenticated: true 
             }; 
             localStorage.setItem("rsn", JSON.stringify(loggedInUser));
-            // return loggedInUser;  // Return the new state
+            return loggedInUser;  // Return the new state
 
         case LOGOUT: 
             const loggedOutUser = { 
