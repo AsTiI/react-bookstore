@@ -1,4 +1,4 @@
-import { CartItem, Book } from "./bookTypes";
+import { CartItemState, Book } from "./bookTypes";
 import { User } from './userTypes'
 
 // Константы для действий
@@ -51,7 +51,7 @@ export type UserActionTypes =
 
 interface AddToCartAction {
     type: typeof ADD_TO_CART; 
-    payload: CartItem;        
+    payload: CartItemState;        
 }
 
 interface RemoveFromCartAction {
@@ -82,7 +82,7 @@ export type BookActionTypes =
 
 interface SaveBookDetailsAction {
     type: typeof SAVE_BOOK_DETAILS;
-    payload: CartItem;
+    payload: CartItemState;
 }
 
 export type BookDetailsActionTypes =

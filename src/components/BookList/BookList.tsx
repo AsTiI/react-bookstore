@@ -4,9 +4,11 @@ import { fetchNewReleases } from '../../helpers/api';
 import { FETCH_BOOKS_REQUEST, FETCH_BOOKS_SUCCESS, FETCH_BOOKS_FAILURE } from '../../types/actionTypes';
 import { RootState } from '../../redux/store';
 import './BookList.css'
+import { useNavigate } from 'react-router-dom';
 
 const BookList: React.FC = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { books, loading, error } = useSelector((state: RootState) => state.books); 
 
     useEffect(() => {
@@ -24,6 +26,10 @@ const BookList: React.FC = () => {
         loadBooks();
     }, [dispatch]);
 
+    const handleClick = (isbn13:any) => {
+        navigate( `/books/${isbn13}`)
+    }
+
     return (
         <div>
             <h1>Новинки!</h1>
@@ -31,12 +37,12 @@ const BookList: React.FC = () => {
             {error && <p>Ошибка: {error}</p>}
             <div className='bookList'>
                 {books.map((book) => (
-                    <div className="book">
+                    <div className="book" key={book.isbn13}>
                         <div className="bookImg">
                             <img src={book.image} alt={book.title} />
                         </div>
-                        <div className='bookTitle' key={book.isbn13}>
-                            <a href={`/books/${book.isbn13}`}>{book.title}</a>
+                        <div className='bookTitle' >
+                            <p onClick={(e)=>handleClick(book.isbn13)}>{book.title}</p>
                         </div>
                         <div className="bookSubtitle">
                             <p>{book.subtitle}</p>

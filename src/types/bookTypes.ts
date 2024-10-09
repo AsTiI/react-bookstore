@@ -13,13 +13,13 @@ export interface BooksState {
     error: string | null;
 }
 
-export interface CartItem {
+export interface CartItemState {
     book: Book;
     quantity: number;
 }
 
 export interface CartState {
-    items: CartItem[];
+    items: CartItemState[];
     totalAmount: number;
 }
 

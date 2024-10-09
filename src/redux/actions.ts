@@ -1,4 +1,4 @@
-import { Book, CartItem } from '../types/bookTypes';
+import { Book, CartItemState } from '../types/bookTypes';
 
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
@@ -8,7 +8,7 @@ export const FETCH_BOOKS_FAILURE = 'FETCH_BOOKS_FAILURE';
 
 interface AddToCartAction {
   type: typeof ADD_TO_CART;
-  payload: CartItem;
+  payload: CartItemState;
 }
 
 interface RemoveFromCartAction {
@@ -32,7 +32,7 @@ interface FetchBooksSuccessAction {
 
 interface FetchBooksFailureAction {
   type: typeof FETCH_BOOKS_FAILURE;
-  payload: string; 
+  payload: string;
 }
 
 export type BookActionTypes =

@@ -4,22 +4,52 @@
     align-items: center;
 }
 
+.bookTitle {
+    padding: 20px 0;
+}
+
+.bookTitle a {
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+}
+
+.bookSubtitle {
+    padding-bottom: 20px;
+}
+
+.bookSubtitle p {
+    color: rgb(179, 179, 179);
+}
 
 .bookCount {
     display: flex;
-    gap: 5px;
+    gap: 15px;
     align-items: center;
 }
 
-.decrement, .increment {
+.bookCount p {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.decrement {
+    text-align: center;
+}
+
+.decrement,
+.increment {
     border: 1px solid black;
     border-radius: 2px;
-    padding: 2px 3px;
-    width: 10px;
+    font-size: 24px;
+    padding: 0 5px;
+    width: 15px;
     cursor: pointer;
     user-select: none;
     display: inline-block;
 }
+
 
 .dropBooks p {
     cursor: pointer;
@@ -36,4 +66,9 @@
 
 .dropBooks p:active {
     color: rgb(185, 185, 185);
+}
+
+.price p {
+    font-weight: bold;
+    font-size: 20px;
 }
