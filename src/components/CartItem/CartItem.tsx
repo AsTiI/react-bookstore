@@ -7,7 +7,7 @@ import { ADD_TO_CART, REMOVE_FROM_CART } from '../../types/actionTypes';
 
 interface CartProps {
     cartItem: CartItemState;
-    onClick: (id: number) => void;
+    onClick: (isbn13: string) => void;
 }
 
 const CartItem: React.FC<CartProps> = ({ cartItem, onClick }) => {
@@ -26,29 +26,35 @@ const CartItem: React.FC<CartProps> = ({ cartItem, onClick }) => {
     }
 
     return (
-        <div className='cart_item'>
-            <img src={cartItem.book.image} alt={cartItem.book.title} />
+        <div className="cart_container">
+            <div className='cart_item'>
+                <img src={cartItem.book.image} alt={cartItem.book.title} />
 
-            <div className="about">
-                <div className='bookTitle' key={cartItem.book.isbn13}>
-                    <a href={`/books/${cartItem.book.isbn13}`}>{cartItem.book.title}</a>
+                <div className="about">
+                    <div className='bookTitle' key={cartItem.book.isbn13}>
+                        <a href={`/books/${cartItem.book.isbn13}`}>{cartItem.book.title}</a>
+                    </div>
+                    <div className="bookSubtitle">
+                        <p>{cartItem.book.subtitle}</p>
+                    </div>
+                    <div className="bookCount">
+                        <div className="decrement" onClick={handleDec}>-</div>
+                        <p>{cartItem.quantity}</p>
+                        <div className="increment" onClick={handleInc}>+</div>
+                    </div>
                 </div>
-                <div className="bookSubtitle">
-                    <p>{cartItem.book.subtitle}</p>
+                <div className="price">
+                    <p>${(parseFloat(cartItem.book.price.replace(/[$,]/g, '')) * cartItem.quantity).toFixed(2)}</p>
                 </div>
-                <div className="bookCount">
-                    <div className="decrement" onClick={handleDec}>-</div>
-                    <p>{cartItem.quantity}</p>
-                    <div className="increment" onClick={handleInc}>+</div>
+                {/* <div className="dropBooks" onClick={(e) => onClick(parseInt(cartItem.book.isbn13))}> */}
+                <div className="dropBooks" onClick={(e) => onClick(cartItem.book.isbn13)}>
+                    <p>+</p>
                 </div>
+                
             </div>
-            <div className="price">
-                <p>${(parseFloat(cartItem.book.price.replace(/[$,]/g, '')) * cartItem.quantity).toFixed(2)}</p>
-            </div>
-            <div className="dropBooks" onClick={(e) => onClick(parseInt(cartItem.book.isbn13))}>
-                <p>+</p>
-            </div>
+            <hr />
         </div>
+        
     )
 }
 

@@ -1,7 +1,7 @@
 import { BookActionTypes,
     FETCH_BOOKS_REQUEST, FETCH_BOOKS_SUCCESS, 
-    FETCH_BOOKS_FAILURE } from '../types/actionTypes';
-import { BooksState }  from '../types/bookTypes'
+    FETCH_BOOKS_FAILURE } from '../../types/actionTypes';
+import { BooksState }  from '../../types/bookTypes'
 
 const initialBooksState: BooksState = {
     books: [],

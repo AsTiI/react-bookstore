@@ -1,7 +1,7 @@
 import { BookActionTypes, 
         ADD_TO_CART, 
-        REMOVE_FROM_CART } from '../types/actionTypes';
-import { CartState }  from '../types/bookTypes'
+        REMOVE_FROM_CART } from '../../types/actionTypes';
+import { CartState }  from '../../types/bookTypes'
 
 const initialCartState: CartState = {
     items: [],
@@ -45,7 +45,8 @@ export const cartReducer = (state = initialCartState, action: BookActionTypes): 
         case REMOVE_FROM_CART:
             
            const filteredItems = state.items.filter(item => item.book.isbn13 !== action.payload);
-           console.log(filteredItems);
+           console.log(typeof action.payload);
+           
 
            const newTotalAmount = parseFloat(filteredItems.reduce((total, item) => 
                 total + parseFloat((item.book.price).replace(/[^0-9.-]+/g,""))*item.quantity, 0).toFixed(2));

@@ -1,8 +1,8 @@
 import { configureStore, combineReducers, Middleware } from '@reduxjs/toolkit';
 import { thunk } from 'redux-thunk';
-import { booksReducer } from './bookReducer';
-import { cartReducer } from './cartReducer';
-import { bookDetailsReducer } from './bookDetailsReducer';
+import { booksReducer } from './reducers/bookReducer';
+import { cartReducer } from './reducers/cartReducer';
+import { bookDetailsReducer } from './reducers/bookDetailsReducer';
 import { userReducer } from './reducers/userReducer';
 import { authReducer } from './reducers/authReducer';
 

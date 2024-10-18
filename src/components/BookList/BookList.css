@@ -1,8 +1,14 @@
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+}
 .bookList {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: space-around;
+    padding-bottom: 30px;
 }
 
 .book {
@@ -14,4 +20,26 @@
 
 .bookImg img {
     width: 300px;
+}
+
+.bookPrice {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pagination {
+    padding: 20px 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.pagination p {
+    padding: 5px 10px;
+    cursor: pointer;
+
+}
+
+hr {
+    opacity: .3;
 }

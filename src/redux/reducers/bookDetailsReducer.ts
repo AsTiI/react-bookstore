@@ -1,6 +1,6 @@
 import { BookDetailsActionTypes,
-    SAVE_BOOK_DETAILS} from '../types/actionTypes';
-import { BookDetailsState }  from '../types/bookTypes'
+    SAVE_BOOK_DETAILS} from '../../types/actionTypes';
+import { BookDetailsState }  from '../../types/bookTypes'
 
 const initialBookDetailsState: BookDetailsState = {
     title: "",

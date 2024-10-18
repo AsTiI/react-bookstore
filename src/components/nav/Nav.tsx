@@ -1,6 +1,9 @@
 import React from 'react'
 import './Nav.css'
 import { useNavigate } from 'react-router-dom'
+import liked from '../../images/nav/heart1.png'
+import cart from '../../images/nav/shopping-bag1.png'
+import profile from '../../images/nav/person.png'
 
 const Nav = () => {
     const navigate = useNavigate();
@@ -26,18 +29,19 @@ const Nav = () => {
             <div className="search">
                 <input type="search" />
             </div>
-            <div className="menu flex_wrapper">
+            <div className="menu_wrapper">
                 <div className="liked">
-                    <p onClick={handleLiked}>Liked</p>
+                    <img src={liked} onClick={handleLiked} />
                 </div>
                 <div className="cart">
-                    <p onClick={handleCart}>Cart</p>
+                    <img src={cart} onClick={handleCart} />
                 </div>
                 <div className="profile">
-                    <p onClick={handleProfile}>Profile</p>
+                    <img src={profile} onClick={handleProfile} />
                 </div>
             </div>
         </div>
+        <hr />
     </div>
   )
 }

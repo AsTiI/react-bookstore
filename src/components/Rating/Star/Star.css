@@ -1,0 +1,15 @@
+.star-container {
+    display: inline-block;
+    user-select: none;
+    cursor: pointer;
+}
+
+.star-container:hover img {
+    width: 15px;
+    padding: 0 1px;
+}
+
+.star-container img {
+    padding: 2px;
+    width: 13px;
+}

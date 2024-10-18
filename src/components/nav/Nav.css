@@ -1,9 +1,30 @@
 .nav_container {
-    margin-bottom: 40px;
+    margin: 20px 0 30px;
+    
 }
 
 .flex_wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 10px;
+}
+
+.logo {
+    font-size: 20px;
+}
+
+.menu_wrapper {
+    gap: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu_wrapper img {
+    width: 20px;
+}
+
+.flex_wrapper .logo, .menu_wrapper .liked, .cart, .profile {
+    cursor: pointer;
 }
