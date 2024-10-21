@@ -26,12 +26,17 @@ const ProfilePage: React.FC = () => {
         }else{
             const token = localStorage.getItem('rsn');
             if (token) {
+                console.log(token);
+                
                 try {
                     const parsedToken = JSON.parse(token);
                     dispatch({type: LOGIN, payload: { email: parsedToken.email, password: parsedToken.password }});
                 } catch (error) {
                     console.error("Ошибка при парсинге токена:", error);
                 }
+            }
+            else{
+                navigate("/auth");
             }
         }
     },[])

@@ -1,9 +1,30 @@
 .subscribe_container {
     margin: 40px 0;
-    padding: 40px 30px;
+    padding: 40px 40px;
     background-color: rgb(244, 235, 255);
 }
 
 .subscribe_container h2 {
     text-transform: uppercase;
+    padding-bottom: 10px;
+}
+
+.subscribe_container p {
+    padding-bottom: 10px;
+}
+
+.subscribe_container .subscribe {
+    padding-top: 10px;
+}
+
+.subscribe {
+    display: flex;
+}
+
+.subscribe .inputBtn {
+    flex-grow: 3;
+}
+
+.subscribe .btn {
+    flex-grow: 1;
 }

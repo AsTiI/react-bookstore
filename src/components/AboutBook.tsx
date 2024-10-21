@@ -6,7 +6,7 @@ import { ADD_TO_CART, FETCH_BOOKS_REQUEST, FETCH_BOOKS_SUCCESS, SAVE_BOOK_DETAIL
 import { RootState } from '../redux/store';
 import Button from './Button/Button';
 
-const BookDetail: React.FC = () => {
+const AboutBook: React.FC = () => {
     const { isbn13 } = useParams<{ isbn13: string }>();
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -60,4 +60,4 @@ const BookDetail: React.FC = () => {
 
 };
 
-export default BookDetail;
+export default AboutBook;
