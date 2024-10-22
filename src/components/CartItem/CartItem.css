@@ -5,7 +5,7 @@
     /* flex-wrap: wrap; */
 }
 
-.about {
+.cart_item .about {
     flex-grow: 2;
  }
 

@@ -34,3 +34,7 @@
 .flex_wrapper .logo, .menu_wrapper .liked, .cart, .profile {
     cursor: pointer;
 }
+
+.flex_wrapper .logo, .menu_wrapper {
+    width: 15%;
+}

@@ -22,10 +22,11 @@ const initialBookDetailsState: BookDetailsState = {
 };
 
 export const bookDetailsReducer = (state = initialBookDetailsState, action: BookDetailsActionTypes): BookDetailsState => {
-switch (action.type) {
-    case SAVE_BOOK_DETAILS:
-        return state
-   default:
-       return state;
-}
+    switch (action.type) {
+        case SAVE_BOOK_DETAILS:
+            state = action.payload
+            return state
+    default:
+        return state;
+    }
 };

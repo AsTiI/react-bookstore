@@ -12,12 +12,21 @@
 }
 
 .default_btn:hover {
-    /* font-size: 15px; */
-    /* padding: 9px 10px; */
     color:#ffffff;
 }
 
 .default_btn:active {
-    /* font-size: 13px; */
+
+}
+
+.white-style {
+    color:rgb(63, 63, 63);
+    background-color: #ffffff;
+    border: 1px solid rgb(235, 235, 235);
+
+}
+
+.white-style:hover {
+    color:rgb(0, 0, 0);
 
 }

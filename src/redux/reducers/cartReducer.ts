@@ -16,8 +16,6 @@ export const cartReducer = (state = initialCartState, action: BookActionTypes): 
            const existingItem = state.items[existingItemIndex];
            let updatedItems;
 
-           console.log(action.payload);
-
            if (existingItem) {
                const updatedItem = { ...existingItem, quantity: action.payload.quantity };
                updatedItems = [...state.items];
@@ -25,8 +23,6 @@ export const cartReducer = (state = initialCartState, action: BookActionTypes): 
            } else {
                updatedItems = state.items.concat(action.payload);
            }
-           
-           console.log(updatedItems);
            
            const totalAmount = parseFloat(updatedItems.reduce((total, item) => 
                 total + parseFloat((item.book.price).replace(/[^0-9.-]+/g,""))*item.quantity, 0).toFixed(2));
@@ -45,8 +41,6 @@ export const cartReducer = (state = initialCartState, action: BookActionTypes): 
         case REMOVE_FROM_CART:
             
            const filteredItems = state.items.filter(item => item.book.isbn13 !== action.payload);
-           console.log(typeof action.payload);
-           
 
            const newTotalAmount = parseFloat(filteredItems.reduce((total, item) => 
                 total + parseFloat((item.book.price).replace(/[^0-9.-]+/g,""))*item.quantity, 0).toFixed(2));

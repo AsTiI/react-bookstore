@@ -1,5 +1,13 @@
+.cardPage {
+    height: 100%;
+    display: flex; 
+    flex-direction: column;
+}
+
 .cardPage_Container {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 3;
 }
 
 .total_container {

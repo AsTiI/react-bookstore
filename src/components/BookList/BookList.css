@@ -8,10 +8,13 @@ h1 {
     gap: 20px;
     /* justify-content: space-between; */
     justify-content: space-around;
-    padding-bottom: 30px;
+    padding: 20px 0 30px;
 }
 
-.book {
+.bookList .book {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 10px;
     width: 300px;
     background-color: aliceblue;

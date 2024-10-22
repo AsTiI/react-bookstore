@@ -1,0 +1,29 @@
+.about_book_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.about_book_container .book {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.about_book_container .book-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.about_book_container .book-data {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.about_book_container .author, .publisher, .language, .format {
+    display: flex;
+    justify-content: space-between;
+}

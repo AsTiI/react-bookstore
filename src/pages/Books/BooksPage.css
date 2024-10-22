@@ -1,3 +1,12 @@
+.releases {
+    height: 100%;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .releases_container {
-    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-grow: 3;
 }

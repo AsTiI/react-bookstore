@@ -1,4 +1,4 @@
-import { CartItemState, Book } from "./bookTypes";
+import { CartItemState, Book, BookDetailsState } from "./bookTypes";
 import { User } from './userTypes'
 
 // Константы для действий
@@ -7,6 +7,7 @@ export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 export const FETCH_BOOKS_REQUEST = 'FETCH_BOOKS_REQUEST'; 
 export const FETCH_BOOKS_SUCCESS = 'FETCH_BOOKS_SUCCESS'; 
 export const FETCH_BOOKS_FAILURE = 'FETCH_BOOKS_FAILURE'; 
+export const FILTER_BOOKS = 'FILTER_BOOKS'
 
 export const SAVE_BOOK_DETAILS = 'SAVE_BOOK_DETAILS';
 
@@ -73,16 +74,22 @@ interface FetchBooksFailureAction {
     payload: string;
 }
 
+interface FilterBooksAction {
+    type: typeof FILTER_BOOKS;
+    payload: string;
+}
+
 export type BookActionTypes =
     | AddToCartAction
     | RemoveFromCartAction
     | FetchBooksRequestAction
     | FetchBooksSuccessAction
-    | FetchBooksFailureAction;
+    | FetchBooksFailureAction
+    | FilterBooksAction;
 
 interface SaveBookDetailsAction {
     type: typeof SAVE_BOOK_DETAILS;
-    payload: CartItemState;
+    payload: BookDetailsState;
 }
 
 export type BookDetailsActionTypes =

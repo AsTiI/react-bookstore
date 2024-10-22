@@ -6,8 +6,6 @@ export const fetchNewReleases = async () => {
 };
 
 export const fetchBookDetails = async (isbn13: string) => {
-
-    const response = await axios.get(`${API_URL}/books/${isbn13}`);
-    
+    const response = await axios.get(`${API_URL}/books/${isbn13}`); 
     return response.data;
 };

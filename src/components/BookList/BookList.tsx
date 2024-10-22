@@ -2,35 +2,28 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchNewReleases } from '../../helpers/api'; 
 import { FETCH_BOOKS_REQUEST, FETCH_BOOKS_SUCCESS, FETCH_BOOKS_FAILURE } from '../../types/actionTypes';
-import { RootState } from '../../redux/store';
 import './BookList.css'
 import { useNavigate } from 'react-router-dom';
 import Rating from '../Rating/Rating';
+import { Book, BooksState } from '../../types/bookTypes';
 
-const BookList: React.FC = () => {
+interface ButtonComponentProps {
+    books: Book[];
+    loading: boolean;
+    error: string | null;
+}
+
+
+const BookList: React.FC<ButtonComponentProps> = ({books, loading, error}) => {
     const booksPerPage = 9
-    const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { books, loading, error } = useSelector((state: RootState) => state.books); 
-    const [countPages, setCountPages ] = useState<number>(0);
+
+    const [ countPages, setCountPages ] = useState<number>(0);
     const [ currentPage, setCurrentPage ] = useState<number>(0)
 
-    useEffect(() => {
-        const loadBooks = async () => {
-            dispatch({ type: FETCH_BOOKS_REQUEST });
-            try {
-                const booksData = await fetchNewReleases();
-                dispatch({ type: FETCH_BOOKS_SUCCESS, payload: booksData.books });
-                setCountPages(Math.ceil(booksData.books.length/booksPerPage))
-            } catch (err) {
-                const errorMessage = (err as Error).message || 'Неизвестная ошибка';
-                dispatch({ type: FETCH_BOOKS_FAILURE, payload: errorMessage });
-            }
-        };
-
-        loadBooks();
-        
-    }, [dispatch]);
+    useEffect(()=> {
+        setCountPages(Math.ceil(books.length/booksPerPage))
+    },[books])
 
     const handleClick = (isbn13:any) => {
         navigate( `/books/${isbn13}`)
@@ -39,7 +32,6 @@ const BookList: React.FC = () => {
     const goToPage= (index:number) => {
         setCurrentPage(index)
         console.log(currentPage);
-        
     }
 
     return (

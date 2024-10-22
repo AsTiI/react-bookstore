@@ -67,11 +67,11 @@ const AuthPage: React.FC = () => {
                     <form onSubmit={handleLogin}>
                         <div className='form_elem'>
                             <label htmlFor="email">Email:</label>
-                                <InputBtn className='grow' value={email} placeholder='Your email' required={true} onChange={(e) => setEmail(e.target.value)}/>
+                                <InputBtn  value={email} placeholder='Your email' required={true} onChange={(e) => setEmail(e.target.value)}/>
                         </div>
                         <div className='form_elem'>
                             <label htmlFor="password">Password:</label>
-                                <InputBtn className='grow' value={password} type="password" placeholder='Your password' required={true} onChange={(e) => setPassword(e.target.value)}/>
+                                <InputBtn  value={password} type="password" placeholder='Your password' required={true} onChange={(e) => setPassword(e.target.value)}/>
 
                         </div>
                         <p>Forgot password?</p>

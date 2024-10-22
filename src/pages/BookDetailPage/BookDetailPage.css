@@ -1,0 +1,12 @@
+.bookdetail {
+    height: 100%;
+    display: flex; 
+    flex-direction: column;
+}
+
+.bookdetail_container {
+    display: flex;
+    justify-content: center;
+    flex-grow: 3;
+    
+}
