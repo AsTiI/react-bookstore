@@ -15,17 +15,27 @@ const initialStar:IStar[] = [
     {url: starUrl1}
 ]
 
-const Rating = () => {
+interface RatingComponentProps {
+    rating?: string;
+}
+
+const Rating: React.FC<RatingComponentProps> = ({ rating='0'}) => {
     const countStars = 5
     const [starUrl, setStarUrl] = useState<IStar[]>([])
     
     useEffect(()=>{
-        setStarUrl(initialStar)
+        
+        setStarUrl(initialStar.map((star, ind)=> ind+1<=parseInt(rating)?
+            {
+                url: starUrl2
+            }:
+            {
+                url: starUrl1
+            }))
     },[])
 
     const handleClick = (index:number) => {
         // setStarUrl(starUrl.map((star,starInd)=>index<=starInd && star.url != starUrl2?{url: starUrl2}:{url: starUrl1}))
-
         setStarUrl(starUrl.map((star,starInd)=>index>=starInd?{url: starUrl2}:{url: starUrl1}))
     }
 

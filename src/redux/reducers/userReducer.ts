@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, SET_LOCAL_STORAGE, SET_USER, UserActionTypes } from '../../types/actionTypes';
+import { LOGIN, LOGOUT, SET_LOCAL_STORAGE, SET_USER, UPDATE_PROFILE, UserActionTypes } from '../../types/actionTypes';
 import { UsersState } from '../../types/userTypes';
 
 const initialState: UsersState = {
@@ -24,6 +24,12 @@ const initialState: UsersState = {
 
 export const userReducer = (state = initialState, action: UserActionTypes): UsersState => { 
     switch (action.type) { 
+        case UPDATE_PROFILE:
+            return {
+                users: state.users.map((user)=>user.id === action.payload.id ? action.payload : user),
+                currentUser: action.payload
+            }
+            
         case SET_USER: 
             return {
                 ...state,
@@ -50,6 +56,10 @@ export const userReducer = (state = initialState, action: UserActionTypes): User
                         ...state,
                         currentUser: userWithAuth
                     };
+                }else{
+                    console.log(2);
+                    
+                    localStorage.removeItem("rsn");
                 }
             }
             return state;

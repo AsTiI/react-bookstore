@@ -16,7 +16,6 @@ const CartPage = () => {
 
     const handleDrop = (isbn13:string) => {
         dispatch({type: REMOVE_FROM_CART, payload: isbn13})
-
     }
 
     useEffect(()=>{
@@ -52,13 +51,10 @@ const CartPage = () => {
                             </div>
                         </div>
                         
-                        
-                        
-                        
                         <input type="button" value='CHECK OUT' />
                     </div>
                 </div>
-                :<p>NOPE</p>}
+                :<p>Your shopping cart is empty</p>}
             </div>
             <Footer />
         </div>

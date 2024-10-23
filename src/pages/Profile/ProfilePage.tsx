@@ -4,7 +4,7 @@ import { RootState } from '../../redux/store';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import './ProfilePage.css'
-import { LOGIN, LOGOUT } from '../../types/actionTypes';
+import { LOGIN, LOGOUT, UPDATE_PROFILE } from '../../types/actionTypes';
 import Nav from '../../components/nav/Nav';
 import Footer from '../../components/Footer/Footer';
 import InputBtn from '../../components/Button/InputBtn';
@@ -15,9 +15,10 @@ const ProfilePage: React.FC = () => {
     const currentUser = useSelector((state: RootState) => state.user.currentUser);
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
-    const [oldPassword, setOldPassword] = useState('123456');
+    
+    const [oldPassword, setOldPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
+    const [newName, setNewName] = useState('');
     const [confirmNewPassword, setConfirmNewPassword] = useState('');
 
     const handleLogout = () => {
@@ -25,9 +26,22 @@ const ProfilePage: React.FC = () => {
         navigate("/auth");
     };
 
+    const handleUpdate = () => {
+        console.log(newPassword === confirmNewPassword);
+        
+        if(currentUser && oldPassword === currentUser.password&& newPassword === confirmNewPassword){
+            dispatch({type: UPDATE_PROFILE, payload: { ...currentUser, password: newPassword, name: newName }})
+            setOldPassword('')
+            setNewPassword('')
+            setConfirmNewPassword('')
+        }
+    }
+
     useEffect(()=>{
-        if(currentUser){
+        if(currentUser && currentUser.name){
+            setNewName(currentUser.name)
             console.log(currentUser);
+            
         }else{
             const token = localStorage.getItem('rsn');
             if (token) {
@@ -42,7 +56,7 @@ const ProfilePage: React.FC = () => {
                 navigate("/auth");
             }
         }
-    },[])
+    },[currentUser])
 
     if (!currentUser) {
         return (
@@ -64,7 +78,7 @@ const ProfilePage: React.FC = () => {
                     <div className="profile">
                         <div className="name">
                             <label htmlFor="name">Name</label>
-                            <InputBtn value={currentUser.name} id='name' name='name'/>
+                            <InputBtn value={newName} onChange={(e)=>setNewName(e.target.value)} id='name' name='name'/>
                         </div>
                         
                         <div className="email">
@@ -98,8 +112,9 @@ const ProfilePage: React.FC = () => {
                         </div>
                     </div>
                     <div className="btn">
-                        <Button value="Save changes" onClick={handleLogout} />
-                        <Button value="Cencel" className='white-style' onClick={handleLogout} />
+                        <Button value="Save changes" onClick={handleUpdate} />
+                        {/* <Button value="Cencel" className='white-style' onClick={handleLogout} /> */}
+                        <Button value="Logout" className='white-style' onClick={handleLogout} />
                     </div>
                     
 

@@ -15,6 +15,12 @@ export const SET_USER = 'SET_USER';
 export const SET_LOCAL_STORAGE = 'SET_LOCAL_STORAGE';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';
+
+interface UpdateProfile {
+    type: typeof UPDATE_PROFILE;
+    payload: User
+}
 
 interface LoginAuth {
     type: typeof LOGIN;
@@ -49,6 +55,7 @@ export type UserActionTypes =
     | SetLocalStorage 
     | Login
     | Logout
+    | UpdateProfile
 
 interface AddToCartAction {
     type: typeof ADD_TO_CART; 

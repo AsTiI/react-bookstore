@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchNewReleases } from '../../helpers/api'; 
-import { FETCH_BOOKS_REQUEST, FETCH_BOOKS_SUCCESS, FETCH_BOOKS_FAILURE } from '../../types/actionTypes';
 import './BookList.css'
 import { useNavigate } from 'react-router-dom';
 import Rating from '../Rating/Rating';
-import { Book, BooksState } from '../../types/bookTypes';
+import { Book } from '../../types/bookTypes';
 
 interface ButtonComponentProps {
     books: Book[];
@@ -31,13 +28,11 @@ const BookList: React.FC<ButtonComponentProps> = ({books, loading, error}) => {
 
     const goToPage= (index:number) => {
         setCurrentPage(index)
-        console.log(currentPage);
     }
 
     return (
-        <div>
+        <div className='bookList_container'>
             <h1>New releases books!</h1>
-            {loading && <p>Loading...</p>}
             {error && <p>Error: {error}</p>}
             <div className='bookList'>
                 {books
@@ -55,7 +50,7 @@ const BookList: React.FC<ButtonComponentProps> = ({books, loading, error}) => {
                         </div>
                         <div className="bookPrice">
                             <p>{book.price}</p>
-                            <Rating />
+                            <Rating rating={String((Math.random()*10/2).toFixed(0))}/>
                         </div>
                     </div>
                 ))}

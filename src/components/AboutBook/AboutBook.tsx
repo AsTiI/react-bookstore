@@ -7,6 +7,9 @@ import { RootState } from '../../redux/store';
 import Button from '../Button/Button';
 import './AboutBook.css'
 import Rating from '../Rating/Rating';
+import facebookUrl from '../../images/facebook.png'
+import twitterUrl from '../../images/twitter.png'
+import etcUrl from '../../images/etc.png'
 
 const AboutBook: React.FC = () => {
     const { isbn13 } = useParams<{ isbn13: string }>();
@@ -39,7 +42,9 @@ const AboutBook: React.FC = () => {
             }
         };
         loadBookDetails();
-    }, [isbn13, book, dispatch, bookDetails]);
+        console.log(bookDetails.rating);
+        
+    }, [isbn13, book, dispatch]);
 
     const handleAddToCart = () => {
         if (book) {
@@ -63,7 +68,7 @@ const AboutBook: React.FC = () => {
                     <div className="book-desc">
                         <div className="bookPrice">
                             <p>{book.price}</p>
-                            <Rating />
+                            <Rating rating={bookDetails.rating}/>
                         </div>
                         <div className="book-data">
                             <div className="author">
@@ -72,7 +77,7 @@ const AboutBook: React.FC = () => {
                             </div>
                             <div className="publisher">
                                 <p>Publisher</p>
-                                <p>{bookDetails.publisher}</p>
+                                <p>{bookDetails.publisher},{bookDetails.year}</p>
                             </div>
                             <div className="language">
                                 <p>Language</p>
@@ -85,6 +90,40 @@ const AboutBook: React.FC = () => {
                         </div>
                         <Button onClick={handleAddToCart} value='Add to cart' />
                     </div>       
+                </div>
+                <div className="section">
+                    <div className="menu_section">
+                        <div className="section_element">Description</div>
+                        <div className="section_element">Authors</div>
+                        <div className="section_element">Reviews</div>
+                    </div>
+                    <div className="desc">
+                        <p>Start programming your own robots using Robot Operation System (ROS). Targeted for absolute beginners in ROS, Linux and Python, this
+                        guide lets you build your own robotics projects.</p>
+                        <p>You'll learn the basic foundation of Ubuntu Linux. Begin with the fundamentals. Installation and useful commands will give you the basic tools you need while programming a robot. Then add useful software applications that can be used while making robots. Programming robots can be done using any of the programming languages. Most popular programming languages are Python and C++. You will incorporate the fundamentals of C++ by learning object oriented programing concepts from example and building C++ projects.
+                        </p>
+                        <p>Finally, tackle an ROS hands-on project to apply all the concepts of ROS you've learned. The aim of the project is to perform a dead-reckoning using a cheap mobile robot. You can command your robot's position on Rviz and your robot will move to that position! Not only will you learn to program, you'll gain hands-on experience working with hardware to create a real robot.
+                        </p>
+
+
+                    </div>
+                    {/* <div className="authors">
+
+                    </div>
+                    <div className="reviews">
+
+                    </div> */}
+                    <div className="icons">
+                        <div className="facebook">
+                            <img src={facebookUrl} />
+                        </div>
+                        <div className='twitter'>
+                            <img src={twitterUrl} />
+                        </div>
+                        <div className="etc">
+                            <img src={etcUrl} />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

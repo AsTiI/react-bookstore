@@ -25,12 +25,12 @@
     text-transform: uppercase;
 }
 
-.sign-in, .sign-up {
+.regpage .sign-in, .sign-up {
     text-align: center;
     flex-grow: 1;
 }
 
-.sign-in {
+.regpage .sign-up {
     border-bottom: 1px solid black;
 }
 

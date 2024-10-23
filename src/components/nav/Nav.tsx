@@ -43,7 +43,7 @@ const Nav: React.FC<ButtonComponentProps>  = ({ onChange=()=>{}, search=''}) => 
             
             <div className="menu_wrapper">
                 <div className="liked">
-                    <img src={liked} onClick={handleLiked} />
+                    {/* <img src={liked} onClick={handleLiked} /> */}
                 </div>
                 <div className="cart">
                     <img src={cart} onClick={handleCart} />
